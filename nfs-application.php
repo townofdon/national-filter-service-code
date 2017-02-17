@@ -1,4 +1,5 @@
 <?php
+/* application */
   /*
    *  Application model/data logic is split between
    *  1) attachments      (model/attach.php)
@@ -171,6 +172,11 @@ Last Name: <input name="lastname" style="width:75%" value="<?php echo $app["last
 </td>
 </tr>
 <tr>
+<td <?php echo (isset($pgerr["nickname"])?"class='error'":"");?> id="nickname" colspan=12>
+Preferred Name/Nickname: <input name="nickname" style="width:75%" value="<?php echo $app["nickname"] ?>">
+</td>
+</tr>
+<tr>
 <td <?php echo (isset($pgerr["street"])?"class='error'":"");?> id="street" colspan=3>
 Street Address: <input style="width:90%;" name="street" value="<?php echo $app["street"] ?>">
 <td <?php echo (isset($pgerr["city"])?"class='error'":"");?> id="city" colspan=3>
@@ -198,6 +204,9 @@ Cell Phone No.: <input name="cellph" style="width:75%" value="<?php echo $app["c
 <tr>
 <td <?php echo (isset($pgerr["email"])?"class='error'":"");?> id="email" colspan=6>
 Email Address: <input name="email" style="width:75%" value="<?php echo $app["email"] ?>">
+<td <?php echo (isset($pgerr["pref_contact_method"])?"class='error'":"");?> id="pref_contact_method" colspan=6>
+Preferred Method of Contact: <input name="pref_contact_method" style="width:75%" value="<?php echo $app["pref_contact_method"] ?>">
+</td>
 </tr>
 
 
@@ -342,28 +351,6 @@ Issuing State
 <input name="licensestate" type="text" style="width:75%" value="<?php echo $app["licensestate"] ?>">
 
 <tr>
-<td <?php echo (isset($pgerr["convicted"])?"class='error'":"");?> id="convicted" colspan=12>
-Have you ever been convicted for any violation(s) of law, including moving traffic violations?<br>
-(<input name="convicted" type="radio" value="1" <?php echo ($app["convicted"]==="1"?$SELECT:"") ?> >Yes)
-(<input name="convicted" type="radio" value="0" <?php echo ($app["convicted"]==="0"?$SELECT:"") ?> >No)
-<tr>
-<td colspan=12>
-<span class="emph">If yes to previous question, please fill out the following questions.</span>
-<tr>
-<td <?php echo (isset($pgerr["convdate"])?"class='error'":"");?> id="convdate" colspan=6>
-Date of Conviction
-<input name="convdate" type="text" style="width:75%" value="<?php echo $app["convdate"] ?>">
-<td <?php echo (isset($pgerr["convplace"])?"class='error'":"");?> id="convplace" colspan=6>
-City and State of Conviction
-<input name="convplace" type="text" style="width:75%" value="<?php echo $app["convplace"] ?>">
-
-<tr>
-<td <?php echo (isset($pgerr["convdesc"])?"class='error'":"");?> id="convdesc" colspan=12>
-Please provide a brief explanation of the offense.
-<textarea rows=5 cols=5 name="convdesc" style="height: 5em; width:100%"><?php echo $app["convdesc"] ?></textarea>
-
-
-<tr>
 <td colspan=12>
 <span class="heading">Work Experience</span>
 <tr>
@@ -382,12 +369,21 @@ How many weeks?
 <input type="radio" name="notice" value="2" <?php echo ($app["notice"] == "2" ? $SELECT : "") ?> >Two
 <tr>
 <td colspan=12>
-<span class="emph">Please list your most recent employment first.</span>
+<label for="can_contact_emp">May we contact your employer?</label>
+<input type="radio" name="can_contact_emp" id="can_contact_emp" value="1" <?php echo ($app["can_contact_emp"]==="1"?$SELECT:"") ?> />
+<input type="radio" name="can_contact_emp" id="can_contact_emp" value="0" <?php echo ($app["can_contact_emp"]==="1"?$SELECT:"") ?> />
+</td>
+</tr>
+<tr>
+<td colspan=12>
+<span class="emph">Please list your most recent employment first.</span><br/>
+</td>
+</tr>
 <tr>
 <td colspan=2>
 Dates
 <td colspan=2>
-Company
+Company Name / Address
 <td colspan=2>
 Job Title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <td colspan=2>
@@ -403,11 +399,11 @@ Salary
   <tr id="job<?php echo $i?>" >
   <td colspan=2>
   <div <?php echo (isset($pgerr["prev".$i."_to"])?"class='error'":"");?> id="to<?php echo $i?>">
-  To:<br>
+  End:<br>
   <input name="prev<?php echo $i?>_to" type="text" style="width:70%" value="<?php echo $j["to"] ?>"><br>
   </div>
   <div <?php echo (isset($pgerr["prev".$i."_from"])?"class='error'":"");?> id="from<?php echo $i?>">
-  From:<br>
+  Start:<br>
   <input name="prev<?php echo $i?>_from" type="text" style="width:70%" value="<?php echo $j["from"] ?>">
   </div>
   <td <?php echo (isset($pgerr["prev".$i."_company"])?"class='error'":"");?> id="company<?php echo $i?>" colspan=2>
@@ -468,11 +464,11 @@ Salary
 Provide <span class="emph">business</span> references, beginning with your last supervisor's name or co-worker's name.
 <tr>
 <td colspan=4>
-Name(s)
+Company Name
 <td colspan=4>
-Job Title
+Contact Person / Title
 <td colspan=4>
-Area code and phone no.
+Area code and phone no./ext.
   <tr>
   <td colspan=4>
   <input <?php echo (isset($pgerr["ref1_name"])?"class='error'":"");?> id="ref1_name" name="ref1_name" type="text" style="width:90%; " value="<?php echo $app["ref1_name"] ?>">
@@ -497,9 +493,8 @@ Area code and phone no.
 
 <tr>
 <td <?php echo (isset($pgerr["canemploy"])?"class='error'":"");?> id="canemploy" colspan=12>
-For the purpose of compliance with the Immigration Reform and Control Act, are you legally
-eligible for employment in the United States?
-(<input name="canemploy" type="radio" value="1" <?php echo ($app["canemploy"]==="1"?$SELECT:"") ?> >Yes)
+For the purpose of compliance with the Immigration Reform and Control Act, are you legally eligible for employment in the United States?
+(<input name="canemploy" type="radio" value="1" <?php echo (empty($app["canemploy"]) || $app["canemploy"]==="1"?$SELECT:"") ?> >Yes)
 (<input name="canemploy" type="radio" value="0" <?php echo ($app["canemploy"]==="0"?$SELECT:"") ?> >No)
 <tr>
 <td colspan=12>

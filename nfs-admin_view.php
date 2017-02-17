@@ -1,4 +1,5 @@
 <?php
+/* admin view */
 
    $title = "Application View";
    $page_css = "css/adminview.css";
@@ -88,6 +89,11 @@ Last Name: <span class="userdata"><?php echo $app["lastname"] ?></span>
 </td>
 </tr>
 <tr>
+<td colspan=12>
+Preferred Name/Nickname: <span class="userdata"><?php echo $app["nickname"] ?></span>
+</td>
+</tr>
+<tr>
 <td colspan=3>
 Street Address: <span class="userdata"><?php echo $app["street"] ?></span>
 <td colspan=3>
@@ -106,6 +112,10 @@ Cell Phone No.: <span class="userdata"><?php echo $app["cellph"] ?></span>
 <tr>
 <td colspan=6>
 Email Address: <span class="userdata"><?php echo $app["email"] ?></span>
+</td>
+<td colspan=6>
+Preferred method of contact: <span class="userdata"><?php echo $app["pref_contact_method"] ?></span>
+</td>
 </tr>
 
 
@@ -258,6 +268,14 @@ If yes, do you need to provide your current employer notice?<br>
 How many weeks?
 <input type="radio" name="notice" value="1" <?php echo ($app["notice"] == "1" ? $SELECT : "") ?> >One
 <input type="radio" name="notice" value="2" <?php echo ($app["notice"] == "2" ? $SELECT : "") ?> >Two
+</tr>
+<tr>
+<td>
+May we contact your employer?
+<input name="can_contact_emp" type="radio" value="1" <?php echo ($app["can_contact_emp"]==="1"?$SELECT:"") ?> >Yes
+<input name="can_contact_emp" type="radio" value="0" <?php echo ($app["can_contact_emp"]==="0"?$SELECT:"") ?> >No
+</td>
+</tr>
 <tr>
 <td colspan=12>
 <span class="emph">Please list your most recent employment first.</span>
@@ -265,7 +283,7 @@ How many weeks?
 <td colspan=2>
 Dates
 <td colspan=2>
-Company
+Company Name / Address
 <td colspan=2>
 Job Title
 <td colspan=2>
@@ -279,8 +297,8 @@ Salary
 ?>
   <tr>
   <td colspan=2>
-  <pre style="font-size: 12">To:   <span class="userdata"><?php echo $j["to"] ?></span></pre>
-  <pre style="font-size: 12">From: <span class="userdata"><?php echo $j["from"] ?></span></pre>
+  <pre style="font-size: 12">End:   <span class="userdata"><?php echo $j["to"] ?></span></pre>
+  <pre style="font-size: 12">Start: <span class="userdata"><?php echo $j["from"] ?></span></pre>
   <td colspan=2>
   <p><span class="userdata"><?php echo $j["company"] ?></span></p>
   <td colspan=2>
@@ -302,9 +320,9 @@ Salary
 Provide <span class="emph">business</span> references, beginning with your last supervisor's name or co-worker's name.
 <tr>
 <td colspan=4>
-Name(s)
+Company Name
 <td colspan=4>
-Job Title
+Contact Person / Title
 <td colspan=4>
 Area code and phone no.
   <tr>

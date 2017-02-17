@@ -1,4 +1,5 @@
 <?php
+/* model-application.php */
 
 /* Functions for manipulating the application data, including both application details and previous
  job history.
@@ -75,7 +76,10 @@ $appfield_text = array(
     "disc_zip",
     "disc_sig",
     "disc_date",
-    "disc_employer"
+    "disc_employer",
+    /* new fields 1.17.2017 */
+    "nickname",
+    "pref_contact_method"
 );
 $appfield_bool = array(
     "prevapplied",
@@ -90,7 +94,9 @@ $appfield_bool = array(
     "cons_receive_copy",
     /* all disclosure confirmation fields are prefixed with 'disc_' */
     "disc_have_read",
-    "disc_binding"
+    "disc_binding",
+    /* new bool fields 1.17.2017 */
+    "can_contact_emp"
 );
 
 # special ref* fields:
