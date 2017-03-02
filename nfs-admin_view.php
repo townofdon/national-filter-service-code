@@ -283,11 +283,11 @@ May we contact your employer?
 <td colspan=2>
 Dates
 <td colspan=2>
-Company Name / Address
+Company Name / <br/>Address/Phone Number
 <td colspan=2>
-Job Title
+Supervisor Name
 <td colspan=2>
-Responsibilities
+Job Title/Responsibilities
 <td colspan=2>
 Reason for Leaving
 <td colspan=2>
@@ -312,40 +312,6 @@ Salary
 <?php
 }
 ?>
-<tr>
-<td colspan=12>
-<span class="heading">References</span>
-<tr>
-<td colspan=12>
-Provide <span class="emph">business</span> references, beginning with your last supervisor's name or co-worker's name.
-<tr>
-<td colspan=4>
-Company Name
-<td colspan=4>
-Contact Person / Title
-<td colspan=4>
-Area code and phone no.
-  <tr>
-  <td colspan=4>
-  <span class="userdata"><?php echo $app["ref1_name"] ?></span>
-  <td colspan=4>
-  <span class="userdata"><?php echo $app["ref1_title"] ?></span>
-  <td colspan=4>
-  <span class="userdata"><?php echo $app["ref1_phone"] ?></span>
-  <tr>
-  <td colspan=4>
-  <span class="userdata"><?php echo $app["ref2_name"] ?></span>
-  <td colspan=4>
-  <span class="userdata"><?php echo $app["ref2_title"] ?></span>
-  <td colspan=4>
-  <span class="userdata"><?php echo $app["ref2_phone"] ?></span>
-  <tr>
-  <td colspan=4>
-  <span class="userdata"><?php echo $app["ref3_name"] ?></span>
-  <td colspan=4>
-  <span class="userdata"><?php echo $app["ref3_title"] ?></span>
-  <td colspan=4>
-  <span class="userdata"><?php echo $app["ref3_phone"] ?></span>
 
 <tr>
 <td colspan=12>
