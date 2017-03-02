@@ -370,8 +370,8 @@ How many weeks?
 <tr>
 <td colspan=12>
 <label for="can_contact_emp">May we contact your employer?</label>
-<input type="radio" name="can_contact_emp" id="can_contact_emp" value="1" <?php echo ($app["can_contact_emp"]==="1"?$SELECT:"") ?> />
-<input type="radio" name="can_contact_emp" id="can_contact_emp" value="0" <?php echo ($app["can_contact_emp"]==="1"?$SELECT:"") ?> />
+<input type="radio" name="can_contact_emp" id="can_contact_emp" value="1" <?php echo ($app["can_contact_emp"]==="1"?$SELECT:"") ?> />Yes
+<input type="radio" name="can_contact_emp" id="can_contact_emp" value="0" <?php echo ($app["can_contact_emp"]==="1"?$SELECT:"") ?> />No
 </td>
 </tr>
 <tr>
@@ -383,11 +383,11 @@ How many weeks?
 <td colspan=2>
 Dates
 <td colspan=2>
-Company Name / Address
+Company Name / <br/>Address/Phone number
 <td colspan=2>
-Job Title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Supervisor Name
 <td colspan=2>
-Responsibilities
+Job Title/Responsibilities&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <td colspan=2>
 Reason for Leaving
 <td colspan=2>
