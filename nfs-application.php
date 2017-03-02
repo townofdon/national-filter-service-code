@@ -456,40 +456,6 @@ Salary
    }
 ?>
 <a href="javascript:plusjob()">Click here</a> if you wish to list more jobs (up to a maximum of ten).
-<tr>
-<td colspan=12>
-<span class="heading">References</span>
-<tr>
-<td colspan=12>
-Provide <span class="emph">business</span> references, beginning with your last supervisor's name or co-worker's name.
-<tr>
-<td colspan=4>
-Company Name
-<td colspan=4>
-Contact Person / Title
-<td colspan=4>
-Area code and phone no./ext.
-  <tr>
-  <td colspan=4>
-  <input <?php echo (isset($pgerr["ref1_name"])?"class='error'":"");?> id="ref1_name" name="ref1_name" type="text" style="width:90%; " value="<?php echo $app["ref1_name"] ?>">
-  <td colspan=4>
-  <input <?php echo (isset($pgerr["ref1_title"])?"class='error'":"");?> id="ref1_title" name="ref1_title" type="text" style="width:90%; " value="<?php echo $app["ref1_title"] ?>">
-  <td colspan=4>
-  <input <?php echo (isset($pgerr["ref1_phone"])?"class='error'":"");?> id="ref1_phone" name="ref1_phone" type="text" style="width:90%; " value="<?php echo $app["ref1_phone"] ?>">
-  <tr>
-  <td colspan=4>
-  <input <?php echo (isset($pgerr["ref2_name"])?"class='error'":"");?> id="ref2_name" name="ref2_name" type="text" style="width:90%; " value="<?php echo $app["ref2_name"] ?>">
-  <td colspan=4>
-  <input <?php echo (isset($pgerr["ref2_title"])?"class='error'":"");?> id="ref2_title" name="ref2_title" type="text" style="width:90%; " value="<?php echo $app["ref2_title"] ?>">
-  <td colspan=4>
-  <input <?php echo (isset($pgerr["ref2_phone"])?"class='error'":"");?> id="ref2_phone" name="ref2_phone" type="text" style="width:90%; " value="<?php echo $app["ref2_phone"] ?>">
-  <tr>
-  <td colspan=4>
-  <input <?php echo (isset($pgerr["ref3_name"])?"class='error'":"");?> id="ref3_name" name="ref3_name" type="text" style="width:90%; " value="<?php echo $app["ref3_name"] ?>">
-  <td colspan=4>
-  <input <?php echo (isset($pgerr["ref3_title"])?"class='error'":"");?> id="ref3_title" name="ref3_title" type="text" style="width:90%; " value="<?php echo $app["ref3_title"] ?>">
-  <td colspan=4>
-  <input <?php echo (isset($pgerr["ref3_phone"])?"class='error'":"");?> id="ref3_phone" name="ref3_phone" type="text" style="width:90%; " value="<?php echo $app["ref3_phone"] ?>">
 
 <tr>
 <td <?php echo (isset($pgerr["canemploy"])?"class='error'":"");?> id="canemploy" colspan=12>
@@ -504,7 +470,6 @@ verifying that you are eligible to be employed and verify your identity.  Furthe
 to provide documentation to that effect should you be employed with NFS.
 </span>
 </td>
-
 
 <tr>
 <td colspan=12>
