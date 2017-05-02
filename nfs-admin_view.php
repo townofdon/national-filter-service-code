@@ -231,28 +231,6 @@ Issuing State
 
 <tr>
 <td colspan=12>
-Have you ever been convicted for any violation(s) of law, including moving traffic violations?
-(<input name="convicted" type="radio" value="1" <?php echo ($app["convicted"]==="1"?$SELECT:"") ?> >Yes)
-(<input name="convicted" type="radio" value="0" <?php echo ($app["convicted"]==="0"?$SELECT:"") ?> >No)
-<tr>
-<td colspan=12>
-<span class="emph">If yes to previous question, please fill out the following questions.</span>
-<tr>
-<td colspan=6>
-Date of Conviction
-<span class="userdata"><?php echo $app["convdate"] ?></span>
-<td colspan=6>
-City and State of Conviction
-<span class="userdata"><?php echo $app["convplace"] ?></span>
-
-<tr>
-<td colspan=12>
-Please provide a brief explanation of the offense.
-<p><span class="userdata"><?php echo $app["convdesc"] ?></span></p>
-
-
-<tr>
-<td colspan=12>
 <span class="heading">Work Experience</span>
 <tr>
 <td colspan=12>
