@@ -17,3 +17,14 @@ nfs-model-application.php
 
 - this is the model for applications
 - this lives here: `/applyroot/support/model/appliction.php`
+
+
+## Live Site
+
+You can view the [live application portal here](http://clientaccess.nationalfilterservice.com/apply/).
+
+You can view the [live admin-side portal here](http://clientaccess.nationalfilterservice.com/apply/admin)
+
+## Creds:
+
+Credentials to access the admin-side portal can be found in client passwords.
